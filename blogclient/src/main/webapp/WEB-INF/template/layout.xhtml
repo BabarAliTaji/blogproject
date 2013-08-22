@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:flow="http://java.sun.com/jsf/core"
+	xmlns:jstl="http://java.sun.com/jsp/jstl/core">
+
+<flow:view contentType="text/html">
+	<h:head>
+		<h:outputStylesheet library="vendor/css" name="bootstrap.css" />
+		<h:outputStylesheet library="app/css" name="layout.css" />
+		<link rel="stylesheet" type="text/css"
+			href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<h:outputScript library="vendor/js" name="bootstrap.js" />
+		<h:outputScript library="vendor/js" name="underscore.js" />
+		<h:outputScript library="vendor/js" name="backbone.js" />
+		<script data-main="../resources/resources/app/app"
+			src="../resources/resources/vendor/js/require.js"></script>
+	</h:head>
+	<h:body>
+		<div id="wrapper">
+			<ui:insert name="header">
+
+			</ui:insert>
+			<ui:insert name="content">
+				
+			</ui:insert>
+			<ui:insert name="footer">
+				
+			</ui:insert>
+		</div>
+	</h:body>
+</flow:view>
+</html>

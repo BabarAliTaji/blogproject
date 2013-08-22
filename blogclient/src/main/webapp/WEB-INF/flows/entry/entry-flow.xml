@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+
+
+	<view-state id="main" view="main.xhtml">
+		<var name="flow" class="com.blog.flow.Flow" />
+		<transition on="registration">
+			<evaluate expression="flow.getRegister()"></evaluate>
+			<render fragments="form"></render>
+		</transition>
+		<transition on="login">
+			<evaluate expression="flow.getLogin()"></evaluate>
+			<render fragments="form"></render>
+		</transition>
+	</view-state>
+
+</flow>

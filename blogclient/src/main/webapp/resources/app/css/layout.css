@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+label{
+	font-size:11px;
+}
+li{
+	
+	list-style-type: none;
+}
+
+.warn{
+	
+font-size: 10px;	
+}
+
+
+#wrapper{
+	
+	width:1100px;
+	margin: 0 auto;
+	
+}
+.form-content{
+	width: 350px;
+	border: 1px soild grey;
+	
+}

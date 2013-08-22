@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+	xmlns:faces="http://www.springframework.org/schema/faces"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/webflow-config
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.3.xsd
+           http://www.springframework.org/schema/faces
+           http://www.springframework.org/schema/faces/spring-faces-2.2.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<!-- <bean id="jpaFlowExecutionListener" -->
+	<!-- class="org.springframework.webflow.persistence.JpaFlowExecutionListener"> -->
+	<!-- <constructor-arg ref="entityManager" /> -->
+	<!-- <constructor-arg ref="transactionManager" /> -->
+	<!-- </bean> -->
+
+	<bean id="facesContextListener"
+		class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
+
+	<!-- flows using El and datasources -->
+
+	<webflow:flow-executor id="flowExecutor"
+		flow-registry="flowRegistry">
+		<webflow:flow-execution-listeners>
+			<!-- <webflow:listener ref="jpaFlowExecutionListener" /> -->
+			<webflow:listener ref="facesContextListener" />
+		</webflow:flow-execution-listeners>
+	</webflow:flow-executor>
+
+	<!-- flows location -->
+	<webflow:flow-registry id="flowRegistry"
+		flow-builder-services="facesFlowBuilderServices" base-path="WEB-INF/flows">
+		<webflow:flow-location-pattern value="/**/*-flow.xml" />
+	</webflow:flow-registry>
+
+	<faces:flow-builder-services development="true"
+		id="facesFlowBuilderServices" />
+	<faces:resources />
+
+	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+		<property name="flowRegistry" ref="flowRegistry" />
+		<property name="order" value="1"></property>
+		<property name="defaultHandler">
+			<bean class="org.springframework.web.servlet.mvc.UrlFilenameViewController"></bean>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
+		<property name="flowExecutor" ref="flowExecutor"></property>
+	</bean>
+	<bean id="faceletsViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.faces.mvc.JsfView"></property>
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".xhtml" />
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean>
+		
+</beans>
+               
