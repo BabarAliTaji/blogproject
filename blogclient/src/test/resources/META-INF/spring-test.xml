@@ -9,8 +9,8 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
-	<bean name="jsonMapper" class="com.blog.configuration.JsonModelMapper">
+	<bean name="jsonModelMapper" class="com.blog.util.JsonModelMapper">
 		<property name="path"
-			value="resources/META-INF/widgetconfiguration/widget-test.json"></property>
+			value="META-INF/widget-test.json"></property>
 	</bean>
 </beans>
