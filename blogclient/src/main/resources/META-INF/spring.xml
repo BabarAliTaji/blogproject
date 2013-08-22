@@ -11,6 +11,6 @@
 
 	<bean name="gson" class="com.blog.configuration.JsonModelMapper">
 		<property name="path"
-			value="classpath:../resources/META-INF/widgetconfiguration/widget.json"></property>
+			value="classpath:META-INF//widgetconfiguration//widget.json"></property>
 	</bean>
 </beans>
