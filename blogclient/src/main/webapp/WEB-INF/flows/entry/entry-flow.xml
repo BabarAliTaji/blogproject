@@ -6,7 +6,18 @@
 
 
 
+	<var name="flow" class="com.blog.flow.Flow" />
+
+	<on-start>
+
+		<set name="requestScope.form" value="requestParameters.form"></set>
+
+		<evaluate expression="flow.show(form)"></evaluate>
+
+	</on-start>
+
 	<view-state id="main" view="main.xhtml">
+
 		<var name="flow" class="com.blog.flow.Flow" />
 		<transition on="registration">
 			<evaluate expression="flow.getRegister()"></evaluate>

@@ -2,7 +2,7 @@ package com.blog.flow;
 
 import java.io.Serializable;
 
-import javax.faces.event.AjaxBehaviorEvent;
+import org.springframework.webflow.scope.RequestScope;
 
 /**
  * @author babarsaleem
@@ -24,11 +24,10 @@ public class Flow implements Serializable {
 		this.content = content;
 	}
 
-	public void getRegister( ) {
+	public void getRegister() {
 			
 			content = "register.xhtml";
-		
-		System.out.println(content);
+	
 	}
 	
 	public void getLogin() {
@@ -37,6 +36,9 @@ public class Flow implements Serializable {
 	
 	System.out.println(content);
 }
-
+public void show(String form){
+	
+	System.out.println(form);
+}
 
 }

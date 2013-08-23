@@ -1,9 +1,11 @@
-package com.blog.configuration;
+package com.blog.util;
+
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import com.blog.inf.IJsonModelMapper;
+import com.blog.clientinterface.IJsonModelMapper;
 import com.google.gson.Gson;
 
 public class JsonModelMapper implements IJsonModelMapper {
@@ -13,30 +15,39 @@ public class JsonModelMapper implements IJsonModelMapper {
 	private String path;
 
 	public Object getJson() {
+		
 		return json;
 	}
 
 	public void setJson(Object json) {
+		
 		this.json = json;
 	}
 
 	public String getPath() {
+		
 		return path;
 	}
 
 	public void setPath(String path) {
+		
 		this.path = path;
 	}
 
-	
-	public Object getJsonFromFile(Class type) throws IOException {
+	public Object getJsonFromFile(Class<?> type) throws IOException {
 
 		Gson gson = new Gson();
 
+		
 		Object jsonObject = null;
-
-		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(getPath())));
-
+		
+		
+		InputStream stream = this.getClass().getClassLoader()
+				.getResourceAsStream(getPath());
+		
+		BufferedReader bufferedReader = new BufferedReader(
+				new InputStreamReader(stream));
+		
 		try {
 
 			StringBuilder stringBuilder = new StringBuilder();
@@ -47,11 +58,9 @@ public class JsonModelMapper implements IJsonModelMapper {
 
 				stringBuilder.append(line);
 
-				stringBuilder.append('\n');
-
 				line = bufferedReader.readLine();
 			}
-
+			
 			jsonObject = gson.fromJson(stringBuilder.toString(), type);
 
 		} finally {

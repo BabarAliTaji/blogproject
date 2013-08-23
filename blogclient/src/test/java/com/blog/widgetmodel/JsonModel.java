@@ -8,22 +8,23 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.blog.inf.IJsonModelMapper;
-import com.blog.widgets.Widget;
+import com.blog.clientinterface.IJsonModelMapper;
+import com.blog.widgets.Widgets;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/META-INF/spring-test.xml" })
 public class JsonModel {
 
 	@Autowired
-	IJsonModelMapper jsonMapper;
+	IJsonModelMapper jsonModelMapper;
 
 	@Test
-	public void jsonMap() throws IOException {
+	public void modelMapping() throws IOException {
 
-		Widget widget = (Widget) jsonMapper.getJsonFromFile(Widget.class);
-		Assert.notNull(widget);
+		Widgets widgets = (Widgets) jsonModelMapper
+				.getJsonFromFile(Widgets.class);
+
+		Assert.notNull(widgets);
+
 	}
 }
-
