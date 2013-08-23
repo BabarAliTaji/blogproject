@@ -13,4 +13,9 @@
 		<property name="path"
 			value="META-INF/widget-test.json"></property>
 	</bean>
+	
+	<bean name="uiComponent" class="com.blog.clientImpl.UIComponent">
+	<property name="jsonModelMapper" ref="jsonModelMapper"></property>
+	</bean>
+	
 </beans>

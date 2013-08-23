@@ -1,5 +1,6 @@
 "widget" :
 [{
-"name":"widget",
-"title": "sometitle"
+"id" :  "form",
+"name":"login",
+"title": "This"
 }]

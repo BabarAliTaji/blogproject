@@ -9,8 +9,8 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
 
-	<bean name="gson" class="com.blog.util.JsonModelMapper">
+	<bean name="jsonModelMapper" class="com.blog.util.JsonModelMapper">
 		<property name="path"
-			value="classpath:META-INF//widgetconfiguration//widget.json"></property>
+			value="META-INF/widget.json"></property>
 	</bean>
 </beans>
