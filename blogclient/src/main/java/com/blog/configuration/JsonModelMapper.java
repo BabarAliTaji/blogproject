@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 
 import com.blog.inf.IJsonModelMapper;
 import com.google.gson.Gson;
-import com.sun.tools.apt.Main;
 
 public class JsonModelMapper implements IJsonModelMapper {
 
