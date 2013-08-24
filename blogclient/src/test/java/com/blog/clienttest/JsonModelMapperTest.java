@@ -1,4 +1,4 @@
-package com.blog.widgetmodel;
+package com.blog.clienttest;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ import com.blog.widgets.Widgets;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/META-INF/spring-test.xml" })
-public class JsonModel {
+public class JsonModelMapperTest {
 
 	@Autowired
 	IJsonModelMapper jsonModelMapper;
