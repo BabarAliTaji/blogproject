@@ -1,16 +1,12 @@
 package com.blog.clienttest;
 
 import java.io.IOException;
-
-import junit.framework.Assert;
-
-import org.aspectj.lang.annotation.Before;
 import org.junit.Test;
+import org.junit.Assert;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
 import com.blog.clientinterface.IModelService;
 import com.blog.domainmodel.Widgets;
 
@@ -20,7 +16,6 @@ public class ModelServiceTest {
 
 	@Autowired
 	private IModelService modelService;
-
 
 	@org.junit.Before
 	public void startService() throws IOException {
@@ -34,8 +29,14 @@ public class ModelServiceTest {
 
 		modelService.getModels();
 
-		org.junit.Assert.assertNotNull(modelService.getModels());
+		Assert.assertNotNull(modelService.getModels());
 
 	}
 
+	@Test
+	public void setModel() {
+
+		Widgets widgets = (Widgets) modelService.getModels();
+		Assert.assertTrue("setModel test", widgets.getModels().get(0) != null);
+	}
 }

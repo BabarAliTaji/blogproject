@@ -1,4 +1,4 @@
-package com.blog.util;
+package com.blog.clientImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import com.blog.clientinterface.IJsonModelMapper;
 import com.google.gson.Gson;
 
-public class JsonModelMapper implements IJsonModelMapper {
+public class JsonModelMapperImpl implements IJsonModelMapper {
 
 	
 	private Object json;
