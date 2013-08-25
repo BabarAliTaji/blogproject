@@ -1,6 +1,8 @@
-package com.blog.widgets;
+package com.blog.domainmodel;
 
-public class Widget {
+import com.blog.clientinterface.IModel;
+
+public class Widget implements IModel {
 
 	private String name;
 	

@@ -13,4 +13,7 @@
 		<property name="path"
 			value="META-INF/widget.json"></property>
 	</bean>
+	
+	<bean id="modelService" class="com.blog.clientImpl.ModelServiceImpl">
+	</bean>
 </beans>

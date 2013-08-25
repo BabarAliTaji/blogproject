@@ -1,41 +1,39 @@
 package com.blog.clientImpl;
 
 import java.io.IOException;
-import java.lang.reflect.ParameterizedType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.blog.clientinterface.IJsonModelMapper;
 import com.blog.clientinterface.IModelService;
-import com.blog.widgets.Widgets;
+import com.blog.clientinterface.IModels;
 
-public class ModelServiceImpl<T> implements IModelService<T> {
+public class ModelServiceImpl implements IModelService {
 
-	/**
-	 * 
-	 */
-
+	
 	private IJsonModelMapper jsonModelMapper;
 	
-	
-	public IJsonModelMapper getJsonModelMapper() {
-		return jsonModelMapper;
-	}
-
+	@Autowired
 	public void setJsonModelMapper(IJsonModelMapper jsonModelMapper) {
 		this.jsonModelMapper = jsonModelMapper;
 	}
+
+	private IModels models;
+
 	
-	@SuppressWarnings("unchecked")
+	public IModels getModels() {
+		return models;
+	}
+
+	public void setModels(IModels models) {
+		this.models = models;
+	}
+	
 	@Override
-	public void startModel( ) throws IOException {
-		
-//		jsonModelMapper.getJsonFromFile((Class<T>)
-//                ((ParameterizedType)getClass()
-//                .getGenericSuperclass())
-//                .getActualTypeArguments()[0]);
-		System.out.println(jsonModelMapper);
-  
+	public <T> void startModel(Class<T> param) throws IOException {
+	
+		setModels((IModels)jsonModelMapper.getJsonFromFile((Class<?>)param));
+
 	}
 
 }

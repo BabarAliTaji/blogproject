@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 
 public class JsonModelMapper implements IJsonModelMapper {
 
+	
 	private Object json;
 
 	private String path;

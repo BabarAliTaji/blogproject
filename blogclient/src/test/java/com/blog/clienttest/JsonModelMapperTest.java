@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.blog.clientinterface.IJsonModelMapper;
-import com.blog.widgets.Widgets;
+import com.blog.domainmodel.Widgets;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/META-INF/spring-test.xml" })
@@ -25,7 +25,9 @@ public class JsonModelMapperTest {
 				.getJsonFromFile(Widgets.class);
 
 		Assert.notNull(widgets);
-		Assert.notNull(widgets.getWidgets().get(0).getName());
+		Assert.notNull(widgets.getModels());
+	    Assert.notNull(widgets.getModels()==widgets);
+	    Assert.notNull(widgets.getModels().size()>0);
 
 	}
 }

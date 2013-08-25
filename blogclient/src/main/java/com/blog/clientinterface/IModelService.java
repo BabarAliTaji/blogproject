@@ -2,9 +2,9 @@ package com.blog.clientinterface;
 
 import java.io.IOException;
 
-public interface IModelService<E> {
+public interface IModelService {
 
+	<T> void startModel(Class<T> param) throws IOException;
 
-	 void startModel() throws IOException;
-	
+	IModels getModels();
 }
